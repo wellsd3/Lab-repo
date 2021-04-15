@@ -35,3 +35,11 @@
 ;((r ^ (q -> (~p))) -> p)
 (define (expr7 p q r)
   (implies (and r (implies q (not p))) p))
+
+;(p->q)V(r->s)
+(define (expr8 p q r s)
+  (or (implies p q) (implies r s)))
+
+;(p^q)V(r^s)
+(define (expr9 p q r s)
+  (or (and p q) (and r s)))
