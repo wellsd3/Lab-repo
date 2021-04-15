@@ -43,3 +43,7 @@
 ;(p^q)V(r^s)
 (define (expr9 p q r s)
   (or (and p q) (and r s)))
+  
+;not working yet
+(define (truth-table expr)
+  (apply expr (first (permutations (procedure-arity expr)))))
