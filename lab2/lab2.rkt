@@ -43,6 +43,9 @@
 ;(p^q)V(r^s)
 (define (expr9 p q r s)
   (or (and p q) (and r s)))
+
+(define (expr10 p q r s)
+  (or (and p q) (and r s)))
   
 ;map applies the function (apply expr (list-ref (permutations (procedure-arity expr)) i)))
 ;to the build-list conatining i
@@ -50,3 +53,6 @@
   (map (lambda (i)
          (apply expr (list-ref (permutations (procedure-arity expr)) i)))
          (build-list (length (permutations (procedure-arity expr))) values)))
+
+(define (equivalent? expr expr1)
+  (equal? (truth-table expr) (truth-table expr1)))
