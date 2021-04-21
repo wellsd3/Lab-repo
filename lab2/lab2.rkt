@@ -44,6 +44,9 @@
 (define (expr9 p q r s)
   (or (and p q) (and r s)))
   
-;not working yet
+;map applies the function (apply expr (list-ref (permutations (procedure-arity expr)) i)))
+;to the build-list conatining i
 (define (truth-table expr)
-  (apply expr (first (permutations (procedure-arity expr)))))
+  (map (lambda (i)
+         (apply expr (list-ref (permutations (procedure-arity expr)) i)))
+         (build-list (length (permutations (procedure-arity expr))) values)))
